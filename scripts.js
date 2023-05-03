@@ -72,8 +72,8 @@ const novoUsuario = () => {
 
   if (nome === '') {
     alert("Escreva o nome do usuário!");
-  } else if (isNaN(celular)) {
-    alert("O campo celular precisa ter números!");
+  } else if (celular === '') {
+    alert("campo celular não pode ser vazio!");
   } else {
     postUsuario(nome, celular)
     alert("Usuário adicionado na base de dados!")
@@ -149,9 +149,11 @@ const novaUBS = () => {
   
   if (nome_fantasia === '' || endereco === '') {
     alert("Escreva o nome, endereço e a cidade da Unidade Básica de Saúde");
-  } else if (isNaN(telefone) || isNaN(latitude) || isNaN(longitude) || isNaN(cnes)) {
-    alert("Os campos CNES, Telefone, latitude e longitude precisam ter números!");
-  } else {
+  } else if (isNaN(latitude) || isNaN(longitude) || isNaN(cnes)) {
+    alert("Os campos CNES, latitude e longitude precisam ter números!");
+  } else if (telefone === '') {
+    alert("O campo telefone não pode ser vazio!");
+  } else {  
     postUBS(cnes, nome_fantasia, endereco, latitude, longitude, telefone)
     alert("Unidade Básica de Saúde adicionada na base de dados!")
     getList()
